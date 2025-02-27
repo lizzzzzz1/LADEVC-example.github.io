@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Conversion Samples</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            font-size: 40px; /* 更大字体 */
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .sub-header {
+            text-align: justify; /* 两端对齐 */
+            font-size: 20px;
+            margin-bottom: 30px;
+            color: #555;
+        }
+        .section-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 40px;
+            color: #333;
+        }
+        .section-description {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: #777;
+        }
+        table {
+            width: 100%;
+            max-width: 1200px; /* 固定表格宽度 */
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ccc;
+            word-wrap: break-word; /* 换行显示长内容 */
+            max-width: 150px; /* 固定列宽 */
+        }
+        th {
+            background-color: #f1f1f1;
+            font-weight: bold;
+        }
+        td {
+            background-color: #fff;
+        }
+        audio {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- 方法名字和摘要 -->
+        <div class="header">
+            面向单样本语音转换的局部特征增广算法
+        </div>
+        <div class="sub-header">
+            Voice conversion (VC) refers to the process of converting the voice into that of a reference speaker while preserving the content of the target speaker's speech. One-shot voice conversion relies on a minimal amount of reference data (typically 3 to 10 seconds) and faces the challenge of a limited reference speech feature set. This scarcity hinders the simultaneous achievement of high speaker similarity and high speech quality in voice conversion. Many existing methods tackle the issue of scarce speech features by augmenting the reference speech dataset. However, self-supervised speech features can have as many as 1024 dimensions, and some features do not contribute significantly to speech similarity. From this perspective, this paper proposes a local feature augmentation algorithm for one-shot voice conversion. For different speakers, features are selected based on the similarity of the converted speech, constructing the optimal feature subset. Iterative augmentation is performed only on the optimal feature subset, while the remaining features are generated within the range of the mean and standard deviation of the original feature set. Experimental results show that the proposed method achieves state-of-the-art performance in terms of the intelligibility of the converted speech. Additionally, when achieving the same level of performance, the number of evaluations in comparison to the DEVC method was reduced by over 50%.
+        </div>
+        <!-- 小标题和简短介绍 -->
+        <div class="section-title">LibriSpeech test-clean数据集例子展示</div>
+        <div class="section-description">本节展示了在LibriSpeech test-clean数据集上FreeVC、YoursTTS、kNN-VC、Phoneme Hallucinator、DEVC和LADEVC的几个例子.</div>
+        <!-- 表格部分 -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Rerence</th>
+                    <th>Target</th>
+                    <th>FreeVC</th>
+                    <th>YoursTTS</th>
+                    <th>kNN-VC</th>
+                    <th>Phoneme<br>Hallucinator</th>
+                    <th>DEVC</th>
+                    <th>LADEVC</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><audio controls><source src="LADEVC-example/Libiri/ref/1089_134686_5.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/target/121_123859_156.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/FreeVC/1089_134686-121_123859.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/YoursTTS/1089_134686-121_123859.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/kNNVC/1089_134686-121_123859.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/PH/1089_134686-121_123859.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/DEVC/1089_134686-121_123859.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/LADEVC/1089_134686-121_123859.wav" type="audio/wav"></audio></td>
+                </tr>
+                <tr>
+                    <td><audio controls><source src="LADEVC-example/Libiri/ref/1221_135767_2.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/target/1284_134647_130.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/FreeVC/1221_135767-1284_134647.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/YoursTTS/1221_135767-1284_134647.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/kNNVC/1221_135767-1284_134647.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/PH/1221_135767-1284_134647.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/DEVC/1221_135767-1284_134647.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/LADEVC/1221_135767-1284_134647.wav" type="audio/wav"></audio></td>
+                </tr>
+                <tr>
+                    <td><audio controls><source src="LADEVC-example/Libiri/ref/237_126133_3.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/target/3570_5694_117.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/FreeVC/237_126133-3570_5694.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/YoursTTS/237_126133-3570_5694.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/kNNVC/237_126133-3570_5694.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/PH/237_126133-3570_5694.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/DEVC/237_126133-3570_5694.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/LADEVC/237_126133-3570_5694.wav" type="audio/wav"></audio></td>
+                </tr>
+                <tr>
+                    <td><audio controls><source src="LADEVC-example/Libiri/ref/2961_961_4.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/target/3575_170457_115.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/FreeVC/2961_961-3575_170457.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/YoursTTS/2961_961-3575_170457.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/kNNVC/2961_961-3575_170457.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/PH/2961_961-3575_170457.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/DEVC/2961_961-3575_170457.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/LADEVC/2961_961-3575_170457.wav" type="audio/wav"></audio></td>
+                </tr>
+                <tr>
+                    <td><audio controls><source src="LADEVC-example/Libiri/ref/3729_6852_3.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/target/5105_28233_127.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/FreeVC/3729_6852-5105_28233.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/YoursTTS/3729_6852-5105_28233.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/kNNVC/3729_6852-5105_28233.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/PH/3729_6852-5105_28233.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/DEVC/3729_6852-5105_28233.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/LADEVC/3729_6852-5105_28233.wav" type="audio/wav"></audio></td>
+                </tr>
+                <tr>
+                    <td><audio controls><source src="LADEVC-example/Libiri/ref/4970_29095_3.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/target/3729_6852_130.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/FreeVC/4970_29095-3729_6852.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/YoursTTS/4970_29095-3729_6852.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/kNNVC/4970_29095-3729_6852.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/PH/4970_29095-3729_6852.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/DEVC/4970_29095-3729_6852.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/LADEVC/4970_29095-3729_6852.wav" type="audio/wav"></audio></td>
+                </tr>
+                <tr>
+                    <td><audio controls><source src="LADEVC-example/Libiri/ref/5105_28240_5.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/target/8224_274384_150.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/FreeVC/5105_28240-8224_274384.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/YoursTTS/5105_28240-8224_274384.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/kNNVC/5105_28240-8224_274384.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/PH/5105_28240-8224_274384.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/DEVC/5105_28240-8224_274384.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/LADEVC/5105_28240-8224_274384.wav" type="audio/wav"></audio></td>
+                </tr>
+                <tr>
+                    <td><audio controls><source src="LADEVC-example/Libiri/ref/61_70970_3.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/target/5105_28241_101.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/FreeVC/61_70970-5105_28241.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/YoursTTS/61_70970-5105_28241.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/kNNVC/61_70970-5105_28241.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/PH/61_70970-5105_28241.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/DEVC/61_70970-5105_28241.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/LADEVC/61_70970-5105_28241.wav" type="audio/wav"></audio></td>
+                </tr>
+                <tr>
+                    <td><audio controls><source src="LADEVC-example/Libiri/ref/672_122797_3.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/target/8230_279154_121.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/FreeVC/672_122797-8230_279154.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/YoursTTS/672_122797-8230_279154.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/kNNVC/672_122797-8230_279154.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/PH/672_122797-8230_279154.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/DEVC/672_122797-8230_279154.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/LADEVC/672_122797-8230_279154.wav" type="audio/wav"></audio></td>
+                </tr>
+                <tr>
+                    <td><audio controls><source src="LADEVC-example/Libiri/ref/908_157963_2.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/target/8230_279154_121.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/FreeVC/908_157963-8230_279154.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/YoursTTS/908_157963-8230_279154.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/kNNVC/908_157963-8230_279154.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/PH/908_157963-8230_279154.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/DEVC/908_157963-8230_279154.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/Libiri/LADEVC/908_157963-8230_279154.wav" type="audio/wav"></audio></td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+    	<!-- 小标题和简短介绍 -->
+        <div class="section-title">VCTK数据集例子展示</div>
+        <div class="section-description">本节展示了在VCTK数据集上FreeVC、YoursTTS、kNN-VC、Phoneme Hallucinator、DEVC和LADEVC的几个例子.</div>
+        <!-- 表格部分 -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Rerence</th>
+                    <th>Target</th>
+                    <th>FreeVC</th>
+                    <th>YoursTTS</th>
+                    <th>kNN-VC</th>
+                    <th>Phoneme<br>Hallucinator</th>
+                    <th>DEVC</th>
+                    <th>LADEVC</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><audio controls><source src="LADEVC-example/VCTK/ref/p225_5.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/target/p252_42.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/FreeVC/p225-p252.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/YoursTTS/p225-p252.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/kNNVC/p225-p252.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/PH/p225-p252.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/DEVC/p225-p252.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/LADEVC/p225-p252.wav" type="audio/wav"></audio></td>
+                </tr>
+                <tr>
+                    <td><audio controls><source src="LADEVC-example/VCTK/ref/p226_4.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/target/p293_42.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/FreeVC/p226-p293.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/YoursTTS/p226-p293.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/kNNVC/p226-p293.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/PH/p226-p293.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/DEVC/p226-p293.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/LADEVC/p226-p293.wav" type="audio/wav"></audio></td>
+                </tr>
+                <tr>
+                    <td><audio controls><source src="LADEVC-example/VCTK/ref/p228_3.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/target/p300_40.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/FreeVC/p228-p300.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/YoursTTS/p228-p300.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/kNNVC/p228-p300.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/PH/p228-p300.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/DEVC/p228-p300.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/LADEVC/p228-p300.wav" type="audio/wav"></audio></td>
+                </tr>
+                <tr>
+                    <td><audio controls><source src="LADEVC-example/VCTK/ref/p229_2.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/target/p301_37.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/FreeVC/p229-p301.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/YoursTTS/p229-p301.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/kNNVC/p229-p301.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/PH/p229-p301.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/DEVC/p229-p301.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/LADEVC/p229-p301.wav" type="audio/wav"></audio></td>
+                </tr>
+                <tr>
+                    <td><audio controls><source src="LADEVC-example/VCTK/ref/p230_3.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/target/p306_41.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/FreeVC/p230-p306.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/YoursTTS/p230-p306.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/kNNVC/p230-p306.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/PH/p230-p306.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/DEVC/p230-p306.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/LADEVC/p230-p306.wav" type="audio/wav"></audio></td>
+                </tr>
+                <tr>
+                    <td><audio controls><source src="LADEVC-example/VCTK/ref/p232_3.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/target/p307_35.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/FreeVC/p232-p307.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/YoursTTS/p232-p307.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/kNNVC/p232-p307.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/PH/p232-p307.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/DEVC/p232-p307.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/LADEVC/p232-p307.wav" type="audio/wav"></audio></td>
+                </tr>
+                <tr>
+                    <td><audio controls><source src="LADEVC-example/VCTK/ref/p233_3.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/target/p330_36.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/FreeVC/p233-p330.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/YoursTTS/p233-p330.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/kNNVC/p233-p330.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/PH/p233-p330.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/DEVC/p233-p330.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/LADEVC/p233-p330.wav" type="audio/wav"></audio></td>
+                </tr>
+                <tr>
+                    <td><audio controls><source src="LADEVC-example/VCTK/ref/p234_3.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/target/p335_35.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/FreeVC/p234-p335.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/YoursTTS/p234-p335.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/kNNVC/p234-p335.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/PH/p234-p335.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/DEVC/p234-p335.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/LADEVC/p234-p335.wav" type="audio/wav"></audio></td>
+                </tr>
+                <tr>
+                    <td><audio controls><source src="LADEVC-example/VCTK/ref/p237_3.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/target/p347_36.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/FreeVC/p237-p347.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/YoursTTS/p237-p347.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/kNNVC/p237-p347.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/PH/p237-p347.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/DEVC/p237-p347.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/LADEVC/p237-p347.wav" type="audio/wav"></audio></td>
+                </tr>
+                <tr>
+                    <td><audio controls><source src="LADEVC-example/VCTK/ref/p239_2.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/target/p374_36.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/FreeVC/p239-p374.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/YoursTTS/p239-p374.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/kNNVC/p239-p374.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/PH/p239-p374.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/DEVC/p239-p374.wav" type="audio/wav"></audio></td>
+                    <td><audio controls><source src="LADEVC-example/VCTK/LADEVC/p239-p374.wav" type="audio/wav"></audio></td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
